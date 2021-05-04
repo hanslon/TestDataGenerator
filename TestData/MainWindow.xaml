@@ -1,0 +1,35 @@
+﻿<Window x:Class="TestData.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestData"
+        mc:Ignorable="d"
+        ResizeMode="CanMinimize"
+        Title="TestData Generator" Height="230" Width="300">
+    <Border Padding="5">
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.4*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <Button x:Name="Imei_button" Content="IMEI" Margin="5 5 5 5" Click="Imei_button_Click"/>
+                    <Button x:Name="Serial_button" Content="Apple style serial" Margin="5 5 5 5" Click="Serial_button_Click"/>
+                    <Button x:Name="VATNO_button" Content="Norwegian VAT number" Margin="5 5 5 5" Click="VATNO_button_Click"/>
+                    <Button x:Name="VATSE_button" Content="Swedish VAT number" Margin="5 5 5 5" Click="VATSE_button_Click"/>
+                    <Button x:Name="VATDK_button" Content="Danish VAT number" Margin="5 5 5 5" Click="VATDK_button_Click"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <RadioButton x:Name="Copy_radio" Content="To clipboard" GroupName="OutputRadio" Margin="5 10 20 5" VerticalAlignment="Center" IsChecked="True" Checked="RadioButton_Checked"/>
+                    <RadioButton x:Name="Display_radio" Content="Display only" GroupName="OutputRadio" Margin="5 5 20 5" VerticalAlignment="Center" Checked="RadioButton_Checked"/>
+                    <RadioButton x:Name="File_radio"  Content="Write to file" GroupName="OutputRadio" Margin="5 5 20 5" VerticalAlignment="Center" Checked="RadioButton_Checked"/>
+                    <TextBlock Text="Quantity" Margin="15 2 10 5"/>
+                    <TextBox x:Name="Qty_box" PreviewTextInput="Qty_box_PreviewTextInput" IsEnabled="False" Text="1" Width="50" Margin="5 5 20 5"/>
+                </StackPanel>
+            </Grid>
+            <TextBox x:Name="Message_box" Padding="1" Margin="5 5 5 5"/>
+        </StackPanel>
+    </Border>
+</Window>
