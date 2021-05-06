@@ -24,10 +24,22 @@ namespace TestData
             var number = new Numbers(numberType);
             var outputString = "";
 
-            quantity = Convert.ToInt32(Qty_box.Text);
-            outputString = number.GetData(number.DataType, quantity, processor.OutputMethod);
+            try
+            {
+                quantity = Convert.ToInt32(Qty_box.Text);
+                outputString = number.GetData(number.DataType, quantity, processor.OutputMethod);
+                Message_box.Text = outputString;
+            }
+            catch (Exception)
+            {
 
-            Message_box.Text = outputString;
+                Message_box.Text = "illegal quantity";
+            }
+
+            
+            
+
+            
         }
 
 
