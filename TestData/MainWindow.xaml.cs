@@ -24,22 +24,33 @@ namespace TestData
             var number = new Numbers(numberType);
             var outputString = "";
 
-            try
+            if (testifIntInQty_boxValue())
+            {
+                Message_box.Text = "illegal quantity";
+            }
+            else
             {
                 quantity = Convert.ToInt32(Qty_box.Text);
                 outputString = number.GetData(number.DataType, quantity, processor.OutputMethod);
                 Message_box.Text = outputString;
             }
+        }
+
+        private bool testifIntInQty_boxValue()
+        {
+            var failedTest = false;
+
+            try
+            {
+                Convert.ToInt32(Qty_box.Text);
+            }
             catch (Exception)
             {
 
-                Message_box.Text = "illegal quantity";
+                failedTest = true;
             }
 
-            
-            
-
-            
+            return failedTest;
         }
 
 
@@ -77,13 +88,7 @@ namespace TestData
 
             if (Qty_box != null)
             {
-                if (Qty_box != null && Qty_box.IsEnabled == true)
-                {
-                    quantity = 1;
-                    Qty_box.Text = quantity.ToString();
-                    Qty_box.IsEnabled = false;
-                }
-                else if (currentRadio.Name == "File_radio")
+                if (currentRadio.Name == "File_radio")
                 {
                     Qty_box.IsEnabled = true;
                     Qty_box.Focus();
