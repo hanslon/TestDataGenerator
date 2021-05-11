@@ -89,7 +89,7 @@ namespace TestData
 
             for (int i = 0; i < _inputArray.Length; i++ )
             {
-                if (i + _offset % 2 == 0)
+                if ((i + _offset) % 2 == 0)
                     sum += ((_inputArray[i] * 2) > 9) ? (_inputArray[i] * 2) - 9 : (_inputArray[i] * 2);
                 else
                     sum += _inputArray[i];

@@ -16,7 +16,7 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0">
                     <Button x:Name="Imei_button" Content="IMEI" Margin="5 5 5 5" Click="Imei_button_Click"/>
-                    <Button x:Name="Serial_button" Content="Apple style serial" Margin="5 5 5 5" Click="Serial_button_Click"/>
+                    <Button x:Name="Serial_button" Content="Serial number" Margin="5 5 5 5" Click="Serial_button_Click"/>
                     <Button x:Name="VATNO_button" Content="Norwegian VAT number" Margin="5 5 5 5" Click="VATNO_button_Click"/>
                     <Button x:Name="VATSE_button" Content="Swedish VAT number" Margin="5 5 5 5" Click="VATSE_button_Click"/>
                     <Button x:Name="VATDK_button" Content="Danish VAT number" Margin="5 5 5 5" Click="VATDK_button_Click"/>
