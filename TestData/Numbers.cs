@@ -15,9 +15,6 @@ namespace TestData
 
         public NumberType DataType { get; private set; }
 
-        
-
-
         public string GetData(NumberType type, int qty, DataProcessor.OutputType outputMethod)
         {
             var outputProcessor = new DataProcessor();

@@ -9,20 +9,52 @@ namespace TestData
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
+        public const string Version = "v1.10";
+
         DataProcessor processor = new();
         private int quantity;
 
         public MainWindow()
         {
+            var result = System.Threading.Tasks.Task.Run(() => Update.UpdateCheck() );
             InitializeComponent();
+            
+            result.Wait();
+            if (Update.NewerVersion)
+            {
+                showUpdatePopup();
+            }
+            else { Message_box.Text = "Up to date"; }
+            Imei_button.Focus();
+        }
+
+        private void showUpdatePopup()
+        {
+            MessageBoxResult result = MessageBox.Show(Update.Message, "Update available", MessageBoxButton.YesNo);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    var startInfo = new System.Diagnostics.ProcessStartInfo(Update.LatesUrl)
+                    {
+                        UseShellExecute = true,
+                    };
+                    System.Diagnostics.Process.Start(startInfo);
+                    break;
+                case MessageBoxResult.No:
+                    Message_box.Text = "Newer version available";
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void fetchNumber(Numbers.NumberType numberType)
         {
             var number = new Numbers(numberType);
-            var outputString = "";
+            string outputString = "";
 
             if (testifIntInQty_boxValue())
             {
