@@ -16,7 +16,7 @@ namespace TestData
 
             bool result = false;
 
-            var tokenAuth = new Credentials("hanslon", "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");
+            var tokenAuth = new Credentials("hanslon", "ghp_token");
             var client = new GitHubClient(new ProductHeaderValue("hanslon"));
             client.Credentials = tokenAuth;
             var latesRelease = await client.Repository.Release.GetLatest("hanslon", "TestDataWPF");
